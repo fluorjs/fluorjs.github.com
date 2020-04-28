@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Fluorine</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./logo.svg" />
+  </head>
+  <body class="max-w-md mx-auto px-4 py-4 mt-8 bg-gray-100">
+    <header>
+      <h1 class="font-semibold text-4xl text-yellow-500 flex items-center">
+        <img src="./logo.svg" class="inline" />
+        Fluorine
+      </h1>
+      <h2 class="font-normal text-lg text-gray-800">
+        a light framework for your light frontend needs
+      </h2>
+    </header>
+
+    <main>
+      <div class="card">
+        <h2 class="card__title">Counter Example</h2>
+
+        <div class="demo">
+          <span @text="value" class="text-xl font-bold mb-6"></span>
+          <button>
+            Add
+          </button>
+
+          <script type="fluorine">
+            initialize("value", 0)
+            on("button", "click", update("value", x => x + 1))
+          </script>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card__title">
+          Controlling attributes
+        </h2>
+
+        <div class="demo">
+          <button @disabled="btn-disabled" class="mb-6">
+            You can click me!
+          </button>
+          <p>
+            <input type="checkbox" id="attr-checkbox" @checked="btn-disabled" />
+            <label for="attr-checkbox">Disable button</label>
+          </p>
+
+          <script type="fluorine">
+            initialize("btn-disabled", true)
+            on("input", "change", update("btn-disabled", x => !x))
+          </script>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card__title">Loops</h2>
+
+        <div class="demo">
+          <button class="mb-6">Add item</button>
+          <ul class="w-56">
+            <template @each="items as item">
+              <li @text="item" class="list-item"></li>
+            </template>
+          </ul>
+
+          <script type="fluorine">
+            initialize("items", ["a", "b", "c"])
+            on("button", "click", append("items", "hey" ))
+          </script>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card__title">
+          Loop using parent context
+        </h2>
+
+        <div class="demo">
+          <input type="text" @value="prefix" />
+          <button class="mb-6">Add item</button>
+          <ul class="w-56">
+            <template @each="items as item">
+              <li class="list-item">
+                <slot @text="prefix"></slot>: <slot @text="item"></slot>
+              </li>
+            </template>
+          </ul>
+
+          <script type="fluorine">
+            function nextChar(chr) {
+              return String.fromCharCode(chr.charCodeAt(0) + 1)
+            }
+            initialize("items", ["a", "b", "c"])
+            initialize("prefix", "letter")
+            on("button", "click", append("items", items => nextChar(items[items.length - 1])))
+            on("input", "keyup", withEvent(ev => update("prefix", ev.target.value)))
+          </script>
+        </div>
+      </div>
+    </main>
+
+    <script src="./fluorine.js"></script>
+  </body>
+</html>

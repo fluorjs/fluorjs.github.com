@@ -1,0 +1,4 @@
+.cache
+.vimproject
+dist
+node_modules
