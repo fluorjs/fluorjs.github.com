@@ -2,34 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+.font-maven {
+  font-family: "Maven Pro", sans-serif;
+}
+
 button {
-  @apply rounded py-2 px-4 bg-yellow-400 text-yellow-900 font-bold;
+  @apply rounded py-3 px-4 bg-green-400 text-blue-900 font-bold shadow-md leading-none;
+}
+
+button:hover {
+  @apply bg-green-300 text-green-800;
+}
+
+button:focus {
+  @apply outline-none shadow-outline;
 }
 
 button[disabled] {
-  @apply bg-yellow-200 text-yellow-600 cursor-not-allowed;
+  @apply bg-green-200 text-green-600 cursor-not-allowed;
+}
+
+pre {
+  @apply font-mono text-gray-800 bg-gray-200 p-4 rounded-lg shadow-inner;
 }
 
 .card {
-  @apply rounded-lg overflow-hidden shadow-lg bg-white mt-8 px-6 pt-4 pb-8 border border-gray-200;
+  @apply rounded-lg overflow-hidden shadow-lg bg-white px-6 py-4 border border-gray-200;
 }
 
-.card__title {
-  @apply font-semibold text-xl text-gray-500;
+.card > h2:first-child {
+  @apply font-semibold text-inter-xl text-gray-700 flex;
 }
 
-.demo {
+.card > .live-preview {
   @apply flex flex-col justify-center items-center mt-6;
 }
 
-.list-item {
+.card > .live-preview strong {
+  @apply text-inter-xl font-bold mb-6;
+}
+
+.card li {
   @apply block px-4 py-2 text-sm leading-5 text-gray-700;
 }
 
-.list-item:hover {
+.card > li:hover {
   @apply bg-gray-100 text-gray-900;
 }
 
-.list-item:focus {
+.card > li:focus {
   @apply outline-none bg-gray-100 text-gray-900;
+}
+
+.anchor {
+  @apply font-light text-gray-300 transition-colors duration-200 ease-in-out;
+}
+
+.anchor:hover {
+  @apply text-gray-500;
+}
+
+.wooosh span {
+  animation: fade 1s alternate ease-in-out infinite;
+}
+
+.wooosh > div > span:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+.wooosh > div > span:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+.wooosh > div > span:nth-of-type(4) {
+  animation-delay: 0.3s;
+}
+.wooosh > div > span:nth-of-type(5) {
+  animation-delay: 0.4s;
+}
+.wooosh > div > span:nth-of-type(6) {
+  animation-delay: 0.5s;
+}
+.wooosh > div > span:nth-of-type(7) {
+  animation-delay: 0.6s;
+}
+.wooosh > div > span:nth-of-type(8) {
+  animation-delay: 0.7s;
+}
+
+@keyframes fade {
+  to {
+    opacity: 0.1;
+  }
 }
