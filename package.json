@@ -1,13 +1,22 @@
 {
-  "dependencies": {
-    "tailwindcss": "^1.3.5"
+  "name": "fluorjs.github.com",
+  "version": "0.1.0",
+  "description": "Website for Fluor.js",
+  "repository": "https://github.com/fluorjs/fluorjs.github.com",
+  "author": "François Vaux",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build src/index.html",
+    "serve": "parcel serve src/index.html",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
+    "gh-pages": "^2.2.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.0.5",
+    "tailwindcss": "^1.4.4",
     "tailwindcss-font-inter": "^1.0.8",
-    "terser": "^4.6.12"
+    "terser": "^4.6.13"
   },
   "prettier": {
     "semi": false

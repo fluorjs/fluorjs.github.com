@@ -14,11 +14,12 @@
       rel="stylesheet"
     />
   </head>
+
   <body class="text-gray-900 bg-gray-100 leading-normal font-inter">
     <header
       class="max-w-3xl h-screen mx-auto p-8 flex flex-col items-center justify-center"
     >
-      <img src="./logo.svg" class="w-20" />
+      <img src="./logo.svg" alt="" />
       <h1
         class="font-maven text-4xl sm:text-5xl text-green-400 tracking-wide flex flex-col items-center justify-center leading-none mt-6"
       >
@@ -34,7 +35,7 @@
         <button class="py-4 px-6 text-lg mr-4">Try it!</button>
         <a
           class="rounded py-4 px-6 bg-white text-green-900 hover:text-green-700 font-bold text-lg shadow-md leading-none"
-          href="#about"
+          href="https://github.com/fluorjs/fluor/"
           >Get Started</a
         >
       </div>
@@ -53,232 +54,12 @@
         header.removeChild(header.firstChild)
         header.appendChild(fragment)
 
-        initialize("source", highlight(`
+        setup("source", highlight(`
           on("click", "button", toggle("wooosh", "h1"))
         `))
         on("click", "button", toggle("wooosh", "h1"))
       </script>
     </header>
-
-    <main class="max-w-3xl mx-auto p-8">
-      <a name="about"></a>
-      <div class="card mb-6">
-        <h2>
-          <span class="flex-1">Getting Started</span>
-          <a href="#about"
-            ><svg
-              class="inline fill-current text-gray-400 hover:text-gray-700 transition-colors duration-200 ease-in-out"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-            >
-              <path
-                class="heroicon-ui"
-                d="M19.48 13.03A4 4 0 0 1 16 19h-4a4 4 0 1 1 0-8h1a1 1 0 0 0 0-2h-1a6 6 0 1 0 0 12h4a6 6 0 0 0 5.21-8.98L21.2 12a1 1 0 1 0-1.72 1.03zM4.52 10.97A4 4 0 0 1 8 5h4a4 4 0 1 1 0 8h-1a1 1 0 0 0 0 2h1a6 6 0 1 0 0-12H8a6 6 0 0 0-5.21 8.98l.01.02a1 1 0 1 0 1.72-1.03z"
-              /></svg
-          ></a>
-        </h2>
-
-        <p>
-          Fluor.js is a JavaScript library that lets your write easy-to-read
-          code to add interactivity to your Web pages using an extensible and
-          straightforward language.
-        </p>
-
-        <p>
-          You can get started in a few minutes by adding Fluor.js to your Web
-          page
-        </p>
-      </div>
-
-      <a name="examples"></a>
-      <div class="card mb-6">
-        <h2>
-          <span class="flex-1">Examples</span>
-          <a href="#about"
-            ><svg
-              class="inline fill-current text-gray-400 hover:text-gray-700 transition-colors duration-200 ease-in-out"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-            >
-              <path
-                class="heroicon-ui"
-                d="M19.48 13.03A4 4 0 0 1 16 19h-4a4 4 0 1 1 0-8h1a1 1 0 0 0 0-2h-1a6 6 0 1 0 0 12h4a6 6 0 0 0 5.21-8.98L21.2 12a1 1 0 1 0-1.72 1.03zM4.52 10.97A4 4 0 0 1 8 5h4a4 4 0 1 1 0 8h-1a1 1 0 0 0 0 2h1a6 6 0 1 0 0-12H8a6 6 0 0 0-5.21 8.98l.01.02a1 1 0 1 0 1.72-1.03z"
-              /></svg
-          ></a>
-        </h2>
-      </div>
-
-      <a name="reference"></a>
-      <div class="card mb-6">
-        <h2>
-          <span class="flex-1">Reference</span>
-          <a href="#about"
-            ><svg
-              class="inline fill-current text-gray-400 hover:text-gray-700 transition-colors duration-200 ease-in-out"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-            >
-              <path
-                class="heroicon-ui"
-                d="M19.48 13.03A4 4 0 0 1 16 19h-4a4 4 0 1 1 0-8h1a1 1 0 0 0 0-2h-1a6 6 0 1 0 0 12h4a6 6 0 0 0 5.21-8.98L21.2 12a1 1 0 1 0-1.72 1.03zM4.52 10.97A4 4 0 0 1 8 5h4a4 4 0 1 1 0 8h-1a1 1 0 0 0 0 2h1a6 6 0 1 0 0-12H8a6 6 0 0 0-5.21 8.98l.01.02a1 1 0 1 0 1.72-1.03z"
-              /></svg
-          ></a>
-        </h2>
-      </div>
-
-      <div class="card">
-        <h2>The Classic Counter</h2>
-
-        <div class="live-preview">
-          <strong @text="value"></strong>
-          <button>
-            Add
-          </button>
-
-          <script type="fluor">
-            initialize("value", 0)
-            on("click", "button", update("value", x => x + 1))
-          </script>
-        </div>
-
-        <pre><code @html="source"></code></pre>
-
-        <script type="fluor">
-          // <![CDATA[
-          initialize("source", highlight(`
-            <strong @text="value"></strong>
-            <button>
-              Add
-            </button>
-
-            <script type="fluor">
-              initialize("value", 0)
-              on("click", "button", update("value", x => x + 1))
-            ${"<"}/script>
-          `))
-          // ]]>
-        </script>
-      </div>
-
-      <div class="card">
-        <h2>Square and cubes</h2>
-
-        <div class="live-preview">
-          <strong @text="square"></strong>
-          <strong @text="cube"></strong>
-          <button>
-            Next
-          </button>
-
-          <script type="fluor">
-            initialize({
-              square: 1,
-              cube: 1,
-            })
-            on("click", "button", update({
-              square: prev => prev * 2,
-              cube: prev => prev * 3,
-            }))
-          </script>
-        </div>
-
-        <pre><code @html="source"></code></pre>
-
-        <script type="fluor">
-          initialize("source", highlight(`
-            <strong @text="square"></strong>
-            <strong @text="cube"></strong>
-            <button>
-              Next
-            </button>
-
-            <script type="fluor">
-              initialize({
-                square: 1,
-                cube: 1,
-              })
-              on("click", "button", update({
-                square: prev => prev * 2,
-                cube: prev => prev * 3,
-              }))
-            ${"<"}/script>
-          `))
-        </script>
-      </div>
-
-      <div class="card">
-        <h2>
-          Controlling attributes
-        </h2>
-
-        <div class="live-preview">
-          <button @disabled="btn-disabled" class="mb-6">
-            You can click me!
-          </button>
-          <p>
-            <input type="checkbox" id="attr-checkbox" @checked="btn-disabled" />
-            <label for="attr-checkbox">Disable button</label>
-          </p>
-
-          <script type="fluor">
-            initialize("btn-disabled", true)
-            on("change", "input", update("btn-disabled", x => !x))
-          </script>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Loops</h2>
-
-        <div class="live-preview">
-          <button class="mb-6">Add item</button>
-          <ul class="w-56">
-            <template @each="items as item">
-              <li @text="item"></li>
-            </template>
-          </ul>
-
-          <script type="fluor">
-            initialize("items", ["a", "b", "c"])
-            on("click", "button", append("items", "hey" ))
-          </script>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>
-          Loop using parent context
-        </h2>
-
-        <div class="live-preview">
-          <input type="text" @value="prefix" />
-          <button class="mb-6">Add item</button>
-          <ul class="w-56">
-            <template @each="items as item">
-              <li class="list-item">
-                <slot @text="prefix"></slot>: <slot @text="item"></slot>
-              </li>
-            </template>
-          </ul>
-
-          <script type="fluor">
-            function nextChar(chr) {
-              return String.fromCharCode(chr.charCodeAt(0) + 1)
-            }
-            initialize("items", ["a", "b", "c"])
-            initialize("prefix", "letter")
-            on("click", "button", append("items", items => nextChar(items[items.length - 1])))
-            on("keyup", "input", withEvent(ev => update("prefix", ev.target.value)))
-          </script>
-        </div>
-      </div>
-    </main>
 
     <script>
       function highlight(source) {
@@ -290,7 +71,11 @@
         ).value
       }
     </script>
+
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.1/build/highlight.min.js"></script>
-    <script type="module" src="./fluor.js"></script>
+    <script
+      type="module"
+      src="//cdn.jsdelivr.net/npm/fluor@0.1.0/dist/fluor.dev.js"
+    ></script>
   </body>
 </html>
