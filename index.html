@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Fluor.js</title><link rel="stylesheet" href="/styles.f9bc43b9.css"><link rel="icon" href="/logo.6fdb200a.svg"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.1/build/styles/atom-one-light.min.css"><link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet"></head><body class="text-gray-900 bg-gray-100 leading-normal font-inter"> <header class="max-w-3xl h-screen mx-auto p-8 flex flex-col items-center justify-center"> <img src="/logo.6fdb200a.svg" alt=""> <h1 class="font-maven text-4xl sm:text-5xl text-green-400 tracking-wide flex flex-col items-center justify-center leading-none mt-6"> Fluor.js </h1> <h2 class="text-xl sm:text-2xl text-green-900 text-center mt-4 mb-8"> Sprinkle interactivity on your design </h2> <pre class="text-xs sm:text-base"><code @html="source"></code></pre> <div class="mt-6"> <button class="py-4 px-6 text-lg mr-4">Try it!</button> <a class="rounded py-4 px-6 bg-white text-green-900 hover:text-green-700 font-bold text-lg shadow-md leading-none" href="https://github.com/fluorjs/fluor/">Get Started</a> </div> <script type="fluor">
+        const header = $$("h1")
+        const letters = header.textContent.trim().split("").map(letter => {
+          const span = document.createElement("span")
+          span.textContent = letter
+          return span
+        })
+        const fragment = document.createDocumentFragment()
+        const div = document.createElement("div")
+        letters.forEach(letter => div.appendChild(letter))
+        fragment.appendChild(div)
+        header.removeChild(header.firstChild)
+        header.appendChild(fragment)
+
+        setup("source", highlight(`
+          on("click", "button", toggle("wooosh", "h1"))
+        `))
+        on("click", "button", toggle("wooosh", "h1"))
+      </script> </header> <script>function e(e){var t=e.replace(/^\r?\n/,"").trimRight(),r=t.match(/^ */m)[0];return hljs.highlightAuto(t.replace(new RegExp("^".concat(r),"gm"),"")).value}</script> <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.1/build/highlight.min.js"></script> <script type="module" src="//cdn.jsdelivr.net/npm/fluor@0.1.0/dist/fluor.dev.js"></script> </body></html>
