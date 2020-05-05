@@ -62,7 +62,7 @@
     </header>
 
     <script>
-      function highlight(source) {
+      window.highlight = function highlight(source) {
         const code = source.replace(/^\r?\n/, "").trimRight()
         const firstLineIndent = code.match(/^ */m)[0]
 
