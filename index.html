@@ -1,19 +1,22 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Fluor.js</title><link rel="stylesheet" href="/styles.f9bc43b9.css"><link rel="icon" href="/logo.6fdb200a.svg"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.1/build/styles/atom-one-light.min.css"><link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet"></head><body class="text-gray-900 bg-gray-100 leading-normal font-inter"> <header class="max-w-3xl h-screen mx-auto p-8 flex flex-col items-center justify-center"> <img src="/logo.6fdb200a.svg" alt=""> <h1 class="font-maven text-4xl sm:text-5xl text-green-400 tracking-wide flex flex-col items-center justify-center leading-none mt-6"> Fluor.js </h1> <h2 class="text-xl sm:text-2xl text-green-900 text-center mt-4 mb-8"> Sprinkle interactivity on your design </h2> <pre class="text-xs sm:text-base"><code @html="source"></code></pre> <div class="mt-6"> <button class="py-4 px-6 text-lg mr-4">Try it!</button> <a class="rounded py-4 px-6 bg-white text-green-900 hover:text-green-700 font-bold text-lg shadow-md leading-none" href="https://github.com/fluorjs/fluor/">Get Started</a> </div> <script type="fluor">
-        const header = $$("h1")
-        const letters = header.textContent.trim().split("").map(letter => {
-          const span = document.createElement("span")
-          span.textContent = letter
-          return span
-        })
-        const fragment = document.createDocumentFragment()
-        const div = document.createElement("div")
-        letters.forEach(letter => div.appendChild(letter))
-        fragment.appendChild(div)
-        header.removeChild(header.firstChild)
-        header.appendChild(fragment)
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Fluor.js - Sprinkle interactivity on your design</title><link rel="stylesheet" href="/styles.3676c8f2.css"><link rel="icon" href="/logo.5e60d40c.svg"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.1/build/styles/atom-one-light.min.css"><link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet"></head><body class="text-gray-900 bg-gray-100 leading-normal font-inter text-center"> <main class="max-w-3xl h-screen mx-auto p-8 flex flex-col items-center justify-center">
+<<<<<<< Updated upstream <header class="flex flex-col items-center justify-center"> <img src="/logo.5e60d40c.svg" alt=""> <h1 class="font-maven text-4xl sm:text-5xl text-green-400 tracking-wide flex flex-col items-center justify-center leading-none mt-6"> Fluor.js </h1>
+======= <img src="/logo.5e60d40c.svg" class="w-32" alt=""> <h1 class="font-maven text-5xl sm:text-6xl text-green-400 tracking-wide flex flex-col items-center justify-center leading-none mt-6"> Fluor.js </h1> <h2 class="text-xl sm:text-3xl text-green-900 text-center mt-4"> Sprinkle interactivity on your design </h2> <ul class="flex mt-6 text-teal-500 text-2xl align-center"> <li class="hover:text-teal-600 px-4"> <a href="#install">Install</a> </li> <li class="hover:text-teal-600 px-4"> <a href="#usage">Usage</a> </li> <li class="hover:text-teal-600 px-4"> <a href="#api">API</a> </li> <li class="hover:text-teal-600 px-4"> <a href="https://github.com/fluorjs/fluor">GitHub</a> </li> </ul> <div class="flex mt-8"> <pre class="text-xs sm:text-base"><code @html="source"></code></pre> <button class="py-4 px-6 text-lg ml-4">Try it!</button> </div>
+>>>>>>> Stashed changes <p class="text-xl sm:text-2xl text-green-900 text-center mt-4 mb-8"> Sprinkle interactivity on your design </p> </header> <article> <pre class="text-xs sm:text-base"><code @html="source"></code></pre> <div class="mt-6"> <button class="py-4 px-6 text-lg mr-4">Try it!</button> <a class="rounded py-4 px-6 bg-white text-green-900 hover:text-green-700 font-bold text-lg shadow-md leading-none" href="https://github.com/fluorjs/fluor/">Get Started</a> </div> </article> </main> <script type="fluor">
+      const header = $$("h1")
+      const letters = header.textContent.trim().split("").map(letter => {
+        const span = document.createElement("span")
+        span.textContent = letter
+        return span
+      })
+      const fragment = document.createDocumentFragment()
+      const span = document.createElement("span")
+      letters.forEach(letter => span.appendChild(letter))
+      fragment.appendChild(span)
+      header.removeChild(header.firstChild)
+      header.appendChild(fragment)
 
-        setup("source", highlight(`
-          on("click", "button", toggle("wooosh", "h1"))
-        `))
+      setup("source", highlight(`
         on("click", "button", toggle("wooosh", "h1"))
-      </script> </header> <script>window.highlight=function(h){var t=h.replace(/^\r?\n/,"").trimRight(),e=t.match(/^ */m)[0];return hljs.highlightAuto(t.replace(new RegExp("^".concat(e),"gm"),"")).value};</script> <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.1/build/highlight.min.js"></script> <script type="module" src="//cdn.jsdelivr.net/npm/fluor@0.1.0/dist/fluor.dev.js"></script> </body></html>
+      `))
+      on("click", "button", toggle("wooosh", "h1"))
+    </script> <main class="max-w-3xl mx-auto"> <a name="install"></a> <section class="p-8"> <h3>Install</h3> <pre><code>&lt;script type="module" src="//cdn.jsdelivr.net/npm/fluor@0.1.0/dist/fluor.dev.js"&gt;&lt;/script&gt;</code></pre> </section> <a name="usage"></a> <section class="p-8"> <h3>Usage</h3> </section> <a name="api"></a> <section class="p-8"> <h3>API</h3> </section> </main> <script>window.highlight=function(h){var t=h.replace(/^\r?\n/,"").trimRight(),e=t.match(/^ */m)[0];return hljs.highlightAuto(t.replace(new RegExp("^".concat(e),"gm"),"")).value};</script> <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.1/build/highlight.min.js"></script> <script type="module" src="//cdn.jsdelivr.net/npm/fluor@0.1.0/dist/fluor.dev.js"></script> </body></html>
