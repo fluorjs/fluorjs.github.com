@@ -66,34 +66,41 @@ pre {
   @apply text-gray-500;
 }
 
-.wooosh span {
-  animation: fade 1s alternate ease-in-out infinite;
+header h1 span {
+  @apply inline-block;
+  animation: wooosh 1s alternate ease-in-out infinite;
+  animation-play-state: paused;
 }
 
-.wooosh > div > span:nth-of-type(2) {
+.wooosh span {
+  animation-play-state: running;
+}
+
+.wooosh > span:nth-of-type(2) {
   animation-delay: 0.1s;
 }
-.wooosh > div > span:nth-of-type(3) {
+.wooosh > span:nth-of-type(3) {
   animation-delay: 0.2s;
 }
-.wooosh > div > span:nth-of-type(4) {
+.wooosh > span:nth-of-type(4) {
   animation-delay: 0.3s;
 }
-.wooosh > div > span:nth-of-type(5) {
+.wooosh > span:nth-of-type(5) {
   animation-delay: 0.4s;
 }
-.wooosh > div > span:nth-of-type(6) {
+.wooosh > span:nth-of-type(6) {
   animation-delay: 0.5s;
 }
-.wooosh > div > span:nth-of-type(7) {
+.wooosh > span:nth-of-type(7) {
   animation-delay: 0.6s;
 }
-.wooosh > div > span:nth-of-type(8) {
+.wooosh > span:nth-of-type(8) {
   animation-delay: 0.7s;
 }
 
-@keyframes fade {
+@keyframes wooosh {
   to {
-    opacity: 0.1;
+    @apply opacity-50 text-yellow-500;
+    transform: scale(1.5, 1.5);
   }
 }
