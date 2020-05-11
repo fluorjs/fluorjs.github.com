@@ -32,7 +32,7 @@ async function spin(text, fn) {
   const spinner = ora(text).start()
 
   try {
-    const retVal = await fn(spinner)
+    await fn(spinner)
     spinner.succeed()
   } catch (err) {
     spinner.fail()
@@ -102,7 +102,11 @@ function pageTemplate(helmet, markup) {
 
 async function renderCSS(source, destination) {
   const css = await readFile(source)
-  const processed = await postcss([tailwindcss, autoprefixer]).process(css, {
+  const processed = await postcss([
+    tailwindcss,
+    autoprefixer,
+    cssnano({ preset: "default" }),
+  ]).process(css, {
     from: source,
     to: destination,
   })
