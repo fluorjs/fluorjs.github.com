@@ -1,22 +1,6 @@
 import React from "react"
-import hljs from "highlight.js"
 
-import Page from "components/Page"
-
-function FluorSource({ children }) {
-  const source = hljs.highlight("javascript", String(children)).value
-  return (
-    <pre className="text-xs sm:text-base">
-      <code dangerouslySetInnerHTML={{ __html: source }}></code>
-    </pre>
-  )
-}
-
-function Fluor({ children }) {
-  const script = `SCRIPT[${Buffer.from(children).toString("base64")}]`
-
-  return <script type="fluor">{script}</script>
-}
+import { Fluor, FluorSource, Page } from "components"
 
 export default function Index() {
   return (
