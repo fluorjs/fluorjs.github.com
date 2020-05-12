@@ -20,17 +20,17 @@ export default function Index() {
           </p>
         </header>
 
-        <article>
+        <article className="max-w-full">
           <FluorSource>
             {`
               on("click", "button", toggle("wobble", "header"))
               on("animationend", "header", toggle("wobble"))
             `}
           </FluorSource>
-          <div className="mt-6 flex justify-center">
-            <button className="py-4 px-6 text-lg mr-4">Try it!</button>
+          <div className="mt-2 flex flex-wrap justify-center">
+            <button className="py-4 px-6 text-lg mr-4 mt-4">Try it!</button>
             <a
-              className="rounded py-4 px-6 bg-white text-green-900 hover:text-green-700 font-bold text-lg shadow-lg leading-none"
+              className="rounded py-4 px-6 mt-4 bg-white text-green-900 hover:text-green-700 font-bold text-lg shadow-lg leading-none"
               href="https://github.com/fluorjs/fluor/"
             >
               Get Started
