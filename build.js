@@ -22,6 +22,7 @@ const mkdir = util.promisify(fs.mkdir)
 const rmrf = util.promisify(rimraf)
 const stat = util.promisify(fs.stat)
 
+const WATCH_MODE = process.argv.includes("--watch")
 const SITE_ROOT = path.join(__dirname, "site")
 const DIST_ROOT = path.join(__dirname, "dist")
 const GLOB = path.join(SITE_ROOT, "**", "*")
@@ -79,6 +80,9 @@ function expandScripts(markup) {
 }
 
 async function renderPage(source, destination) {
+  if (require.resolve(source) in require.cache) {
+    delete require.cache[require.resolve(source)]
+  }
   const Page = require(source).default
   const markup = expandScripts(ReactDOM.renderToStaticMarkup(<Page />))
   const helmet = Helmet.renderStatic()
@@ -103,11 +107,13 @@ function pageTemplate(helmet, markup) {
 
 async function renderCSS(source, destination) {
   const css = await readFile(source)
-  const processed = await postcss([
-    tailwindcss,
-    autoprefixer,
-    cssnano({ preset: "default" }),
-  ]).process(css, {
+  const processed = await postcss(
+    [
+      tailwindcss,
+      autoprefixer,
+      !WATCH_MODE && cssnano({ preset: "default" }),
+    ].filter(Boolean)
+  ).process(css, {
     from: source,
     to: destination,
   })
@@ -143,14 +149,15 @@ void (async () => {
   await rmrf(path.join(DIST_ROOT, "*"))
   await ensureDirectory(DIST_ROOT)
   await fullBuild()
-  if (process.argv.includes("--watch")) {
+  if (WATCH_MODE) {
     const watcher = chokidar.watch(GLOB, { ignoreInitial: true })
-    watcher.on("add", (source) => build(source))
-    watcher.on("change", (source) => build(source))
-    watcher.on("unlink", (source) => {
+    watcher.on("add", async (source) => await build(source))
+    watcher.on("change", async (source) => await build(source))
+    watcher.on("unlink", async (source) => {
       const destination = replaceExt(source.replace(SITE_ROOT, DIST_ROOT))
-      spin(`${chalk.red("rm")} ${distRelative(destination)}`, () =>
-        rmrf(destination)
+      await spin(
+        `${chalk.red("rm")} ${distRelative(destination)}`,
+        async () => await rmrf(destination)
       )
     })
   }

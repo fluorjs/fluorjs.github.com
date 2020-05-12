@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production babel-node build.js",
-    "watch": "NODE_ENV=production babel-node build.js --watch",
+    "watch": "babel-node build.js --watch",
     "serve": "cd dist && npx serve",
     "deploy": "gh-pages -d dist -b master"
   },
