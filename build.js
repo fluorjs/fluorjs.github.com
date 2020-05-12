@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet"
 import fastGlob from "fast-glob"
 import ora from "ora"
 import chalk from "chalk"
+import chokidar from "chokidar"
 import rimraf from "rimraf"
 import postcss from "postcss"
 import tailwindcss from "tailwindcss"
@@ -121,17 +122,36 @@ const HANDLERS = {
   ".css": renderCSS,
 }
 
+async function build(source) {
+  const destination = replaceExt(source.replace(SITE_ROOT, DIST_ROOT))
+  await ensureDirectory(path.dirname(destination))
+  await spin(distRelative(destination), async (spinner) => {
+    const handler = HANDLERS[path.extname(source)] || copyFile
+    await handler(source, destination)
+    await updateSpinnerWithFileSize(destination, spinner)
+  })
+}
+
+async function fullBuild() {
+  const sources = await fastGlob([GLOB])
+  for (const source of sources) {
+    await build(source)
+  }
+}
+
 void (async () => {
   await rmrf(path.join(DIST_ROOT, "*"))
   await ensureDirectory(DIST_ROOT)
-  const sources = await fastGlob([GLOB])
-  for (const source of sources) {
-    const destination = replaceExt(source.replace(SITE_ROOT, DIST_ROOT))
-    await ensureDirectory(path.dirname(destination))
-    await spin(distRelative(destination), async (spinner) => {
-      const handler = HANDLERS[path.extname(source)] || copyFile
-      await handler(source, destination)
-      await updateSpinnerWithFileSize(destination, spinner)
+  await fullBuild()
+  if (process.argv.includes("--watch")) {
+    const watcher = chokidar.watch(GLOB, { ignoreInitial: true })
+    watcher.on("add", (source) => build(source))
+    watcher.on("change", (source) => build(source))
+    watcher.on("unlink", (source) => {
+      const destination = replaceExt(source.replace(SITE_ROOT, DIST_ROOT))
+      spin(`${chalk.red("rm")} ${distRelative(destination)}`, () =>
+        rmrf(destination)
+      )
     })
   }
 })()

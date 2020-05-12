@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production babel-node build.js",
+    "watch": "NODE_ENV=production babel-node build.js --watch",
     "serve": "cd dist && npx serve",
     "deploy": "gh-pages -d dist -b master"
   },
@@ -18,6 +19,7 @@
     "autoprefixer": "^9.7.6",
     "babel-plugin-module-resolver": "^4.0.0",
     "chalk": "^4.0.0",
+    "chokidar": "^3.4.0",
     "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
@@ -45,6 +47,5 @@
     "iOS >= 10.3",
     "Firefox >= 54",
     "Edge >= 15"
-  ],
-  "dependencies": {}
+  ]
 }
