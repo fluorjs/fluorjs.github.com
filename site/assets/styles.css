@@ -10,26 +10,6 @@ html {
   font-family: "Maven Pro", sans-serif;
 }
 
-button {
-  @apply rounded py-3 px-4 bg-green-400 text-blue-900 font-bold shadow-md leading-none;
-}
-
-button:hover {
-  @apply bg-green-300 text-green-800;
-}
-
-button:focus {
-  @apply outline-none shadow-outline;
-}
-
-button[disabled] {
-  @apply bg-green-200 text-green-600 cursor-not-allowed;
-}
-
-pre {
-  @apply font-mono text-gray-800 bg-gray-200 p-4 rounded-lg shadow-inner;
-}
-
 .card {
   @apply rounded-lg overflow-hidden shadow-lg bg-white px-6 py-4 border border-gray-200;
 }
