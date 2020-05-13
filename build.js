@@ -102,7 +102,7 @@ function pageTemplate(helmet, markup) {
     ${markup}
     ${helmet.script.toString()}
   </body>
-</html>`
+</html>`.replace(/ data-react-helmet="true"/g, "")
 }
 
 async function renderCSS(source, destination) {
