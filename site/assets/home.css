@@ -44,3 +44,31 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+main article h2 {
+  @apply text-xl font-bold;
+}
+
+@screen sm {
+  main article h2 {
+    @apply text-2xl;
+  }
+}
+
+main article p {
+  @apply my-2 leading-relaxed text-gray-800;
+}
+
+@screen sm {
+  main article p {
+    @apply text-lg;
+  }
+}
+
+main article a {
+  @apply text-teal-700 underline;
+}
+
+main article a:hover {
+  @apply text-teal-600;
+}
