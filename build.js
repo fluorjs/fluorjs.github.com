@@ -74,7 +74,7 @@ async function updateSpinnerWithFileSize(file, spinner) {
 }
 
 function expandScripts(markup) {
-  return markup.replace(/SCRIPT\[([^\]]+)\]/, (_, b64) =>
+  return markup.replace(/SCRIPT\[([^\]]+)\]/g, (_, b64) =>
     Buffer.from(b64, "base64").toString()
   )
 }
