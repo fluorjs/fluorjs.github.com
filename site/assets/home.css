@@ -45,6 +45,10 @@
   }
 }
 
+main article {
+  @apply mb-8;
+}
+
 main article h2 {
   @apply text-xl font-bold;
 }
@@ -63,6 +67,13 @@ main article p {
   main article p {
     @apply text-lg;
   }
+}
+
+main article p:first-child {
+  @apply mt-0;
+}
+main article p:last-child {
+  @apply mb-0;
 }
 
 main article a {
