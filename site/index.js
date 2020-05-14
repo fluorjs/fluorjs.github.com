@@ -1,7 +1,16 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-import { Button, Code, Fluor, Page, Source, Warning } from "components"
+import {
+  Button,
+  Code,
+  Example,
+  Fluor,
+  Page,
+  Section,
+  Source,
+  Warning,
+} from "components"
 
 export default function Index() {
   return (
@@ -73,53 +82,72 @@ export default function Index() {
       </header>
 
       <main className="max-w-3xl mx-auto px-4">
-        <article id="intro">
-          <h2>What is it?</h2>
-          <p>
+        <Section id="intro" title="What is it?">
+          <Section.P>
             Fluor.js is a tiny JavaScript library that provides you with a
             high-level language to easily add interactions and effects to your
             websites.
-          </p>
-          <p>
+          </Section.P>
+          <Section.P>
             It is great for prototypes, UI and UX research and for all websites
             that do not require the cumbersome machinery of a full-fledged
             framework.
-          </p>
-          <p>
+          </Section.P>
+          <Section.P>
             It is inspired by <a href="http://uilang.com">uilang</a> and{" "}
             <a href="https://github.com/alpinejs/alpine">Alpine.js</a>, has no
             dependencies and can be added to any page with a single line of
             HTML.
-          </p>
-        </article>
+          </Section.P>
+        </Section>
 
-        <article id="usage">
-          <h2>Usage</h2>
-          <p>
-            To load the latest version of Fluor.js in your webpage, drop this
-            HTML snippet before the closing{" "}
-            <Code language="html">&lt;/body&gt;</Code> tag of your page:
-          </p>
+        <Section id="usage" title="Usage">
+          <Section.P>
+            To load the latest version of Fluor.js in your webpage, all you need
+            to do is drop this HTML snippet just before the{" "}
+            <Code language="html">{`</body>`}</Code> tag of your document:
+          </Section.P>
+
           <Source language="html">
             {`
-              <script
-                type="module"
-                src="//cdn.jsdelivr.net/npm/fluor@latest/dist/fluor.min.js"></script>
+              <script type="module" src="//cdn.jsdelivr.net/npm/fluor@latest/dist/fluor.min.js"></script>
             `}
           </Source>
+
           <Warning>
-            <p>
+            <Warning.P className="text-orange-400">
               Fluor.js is still experimental so you may encounter breaking
-              changes when using the <code>latest</code> version. You can use a
-              fixed version number instead of <code>latest</code> to avoid those
+              changes when using the <Code>latest</Code> version. You can use a
+              fixed version number instead of <Code>latest</Code> to avoid those
               breaking changes.
-            </p>
+            </Warning.P>
           </Warning>
-        </article>
 
-        <article id="api">
-          <h2>API</h2>
+          <Section.P>
+            To use Fluor.js, add a{" "}
+            <Code language="html">{`<script type="fluor">`}</Code> tag inside
+            one of your HTML elements with your Fluor code. Here&apos;s an
+            example:
+          </Section.P>
 
+          <Example>
+            {`
+              <div>
+                <p>Number of clicks: <slot f-text="clicks"></slot></p>
+                <button>Click me</button>
+
+                <script type="fluor">
+                  setup("clicks", 0)
+                  on("click", "button", set("clicks", n => n + 1))
+                </script>
+              </div>
+            `}
+          </Example>
+        </Section>
+
+        <Section id="Guide" title="Guide"></Section>
+
+        <Section id="api" title="API">
           <APISection member="set"></APISection>
           <APISection member="setup"></APISection>
           <APISection member="on"></APISection>
@@ -137,7 +165,7 @@ export default function Index() {
           <APISection member="$parent"></APISection>
           <APISection member="$"></APISection>
           <APISection member="$$"></APISection>
-        </article>
+        </Section>
       </main>
     </Page>
   )

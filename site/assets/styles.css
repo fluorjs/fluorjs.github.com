@@ -9,3 +9,33 @@ html {
 .font-maven {
   font-family: "Maven Pro", sans-serif;
 }
+
+a {
+  @apply text-teal-700 underline;
+}
+
+a:hover {
+  @apply text-teal-600;
+}
+
+.run * {
+  @apply my-2;
+}
+
+.run *:first-child {
+  @apply mt-0;
+}
+
+.run *:last-child {
+  @apply mb-0;
+}
+
+.run button {
+  @apply rounded py-3 px-4 font-bold shadow-md leading-none bg-green-400 text-blue-900;
+}
+.run button:focus {
+  @apply outline-none shadow-outline;
+}
+.run button:hover {
+  @apply bg-green-300 text-green-800;
+}
