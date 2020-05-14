@@ -24,8 +24,10 @@ const stat = util.promisify(fs.stat)
 
 const WATCH_MODE = process.argv.includes("--watch")
 const SITE_ROOT = path.join(__dirname, "site")
+const LIB_ROOT = path.join(__dirname, "lib")
 const DIST_ROOT = path.join(__dirname, "dist")
 const GLOB = path.join(SITE_ROOT, "**", "*")
+const LIB_GLOB = path.join(LIB_ROOT, "**", "*.js")
 const EXTENSION_MAP = {
   ".js": ".html",
 }
@@ -79,10 +81,22 @@ function expandScripts(markup) {
   )
 }
 
-async function renderPage(source, destination) {
-  if (require.resolve(source) in require.cache) {
-    delete require.cache[require.resolve(source)]
+function removeFromCache(moduleId) {
+  const cached = require.cache[moduleId]
+
+  if (!cached) {
+    return
   }
+
+  const ownModule = (mod) =>
+    mod.path.startsWith(LIB_ROOT) || mod.path.startsWith(SITE_ROOT)
+
+  cached.children.filter(ownModule).forEach((mod) => removeFromCache(mod.id))
+  delete require.cache[moduleId]
+}
+
+async function renderPage(source, destination) {
+  removeFromCache(require.resolve(source))
   const Page = require(source).default
   const markup = expandScripts(ReactDOM.renderToStaticMarkup(<Page />))
   const helmet = Helmet.renderStatic()
@@ -151,6 +165,8 @@ void (async () => {
   await fullBuild()
   if (WATCH_MODE) {
     const watcher = chokidar.watch(GLOB, { ignoreInitial: true })
+    const libWatcher = chokidar.watch(LIB_GLOB, { ignoreInitial: true })
+
     watcher.on("add", async (source) => await build(source))
     watcher.on("change", async (source) => await build(source))
     watcher.on("unlink", async (source) => {
@@ -160,5 +176,8 @@ void (async () => {
         async () => await rmrf(destination)
       )
     })
+
+    libWatcher.on("add", async () => await fullBuild())
+    libWatcher.on("change", async () => await fullBuild())
   }
 })()
