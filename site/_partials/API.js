@@ -7,7 +7,9 @@ export default function API() {
       <APIMember member="set"></APIMember>
       <APIMember member="setup"></APIMember>
       <APIMember member="on"></APIMember>
-      <APIMember member="toggle"></APIMember>
+      <APIMember member="addClass"></APIMember>
+      <APIMember member="removeClass"></APIMember>
+      <APIMember member="toggleClass"></APIMember>
       <APIMember member="append"></APIMember>
       <APIMember member="prepend"></APIMember>
       <APIMember member="pop"></APIMember>
