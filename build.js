@@ -142,7 +142,13 @@ const HANDLERS = {
   ".css": renderCSS,
 }
 
-async function build(source) {
+async function build(source, rebuildDeps = false) {
+  if (path.basename(path.dirname(source)) === "_partials") {
+    if (rebuildDeps) {
+      await fullBuild({ onlyPages: true })
+    }
+    return
+  }
   const destination = replaceExt(source.replace(SITE_ROOT, DIST_ROOT))
   await ensureDirectory(path.dirname(destination))
   await spin(distRelative(destination), async (spinner) => {
@@ -152,23 +158,32 @@ async function build(source) {
   })
 }
 
-async function fullBuild() {
+async function fullBuild(options = {}) {
   const sources = await fastGlob([GLOB])
   for (const source of sources) {
+    if (options.onlyPages && !source.endsWith(".js")) {
+      continue
+    }
     await build(source)
   }
 }
 
 void (async () => {
-  await rmrf(path.join(DIST_ROOT, "*"))
-  await ensureDirectory(DIST_ROOT)
-  await fullBuild()
+  try {
+    await rmrf(path.join(DIST_ROOT, "*"))
+    await ensureDirectory(DIST_ROOT)
+    await fullBuild()
+  } catch (error) {
+    console.error(error)
+    process.exit(1)
+  }
+
   if (WATCH_MODE) {
     const watcher = chokidar.watch(GLOB, { ignoreInitial: true })
     const libWatcher = chokidar.watch(LIB_GLOB, { ignoreInitial: true })
 
     watcher.on("add", async (source) => await build(source))
-    watcher.on("change", async (source) => await build(source))
+    watcher.on("change", async (source) => await build(source, true))
     watcher.on("unlink", async (source) => {
       const destination = replaceExt(source.replace(SITE_ROOT, DIST_ROOT))
       await spin(
