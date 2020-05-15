@@ -32,8 +32,8 @@ export default function Index() {
         {/* </div> */}
       </nav>
 
-      <header className="max-w-3xl h-screen mx-auto px-4 py-12 sm:py-20 flex flex-col items-center justify-center">
-        <h1 className="font-maven text-5xl sm:text-6xl text-green-400 tracking-wide leading-none mt-6 flex items-center justify-center flex-wrap">
+      <header className="max-w-3xl h-screen mx-auto px-4 flex flex-col items-center justify-center -mt-8">
+        <h1 className="font-maven text-5xl sm:text-6xl text-green-400 tracking-wide leading-none flex items-center justify-center flex-wrap">
           <img
             src="/assets/logo.svg"
             alt=""
