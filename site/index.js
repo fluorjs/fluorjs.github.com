@@ -52,7 +52,7 @@ export default function Index() {
               on("animationend", "h1", toggle("wobble"))
             `}
           </Source>
-          <Button className="rounded-full px-4 py-4 self-center flex">
+          <Button className="self-center flex">
             <svg
               className="fill-current w-4 h-4 mr-2"
               xmlns="http://www.w3.org/2000/svg"

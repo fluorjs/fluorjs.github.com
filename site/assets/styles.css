@@ -31,11 +31,11 @@ a:hover {
 }
 
 .run button {
-  @apply rounded py-3 px-4 font-bold shadow-md leading-none bg-green-400 text-green-100;
+  @apply rounded-full p-4 font-bold shadow-md leading-none bg-green-500 text-green-100;
 }
 .run button:focus {
   @apply outline-none shadow-outline;
 }
 .run button:hover {
-  @apply bg-green-500;
+  @apply bg-green-600;
 }
