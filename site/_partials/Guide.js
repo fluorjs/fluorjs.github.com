@@ -12,18 +12,19 @@ export default function Guide() {
 
       <Example>
         {`
-              <div>
-                <p>
-                  <strong f-text="clicks"></strong>
-                </p>
-                <button>Click me</button>
+          <div>
+            <p>
+              <strong f-text="clicks"></strong>
+            </p>
+            <button>Click me</button>
 
-                <script type="fluor">
-                  setup("clicks", 0)
-                  on("click", "button", set("clicks", n => n + 1))
-                </script>
-              </div>
-            `}
+            <script type="fluor">
+            function f() {}
+              setup("clicks", 0)
+              on("click", "button", set("clicks", n => n + 1))
+            </script>
+          </div>
+        `}
       </Example>
 
       <Section.Heading id="guide-variables">Variables</Section.Heading>
