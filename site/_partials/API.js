@@ -84,8 +84,7 @@ export default function API() {
                   on("click", "p", [
                     toggleClass("text-red-900"),
                     toggleClass("bg-red-200"),
-                  ]
-                  )
+                  ])
                 </script>
               </div>
             `}
