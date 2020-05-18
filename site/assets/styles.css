@@ -39,3 +39,106 @@ a:hover {
 .run button:hover {
   @apply bg-green-600;
 }
+
+/**
+ * Syntax highlighting
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply font-mono text-gray-200 whitespace-pre text-left break-normal;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  @apply bg-gray-900;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-gray-600;
+}
+
+.token.punctuation {
+  @apply text-gray-300;
+}
+
+.token.namespace {
+  @apply opacity-75;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  @apply text-orange-500;
+}
+
+.token.boolean,
+.token.number {
+  @apply text-purple-500;
+}
+
+.token.tag .token.punctuation {
+  color: inherit;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-green-400;
+}
+
+.token.entity {
+  @apply text-pink-500;
+}
+
+.token.operator,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  @apply text-gray-200;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  @apply text-yellow-400;
+}
+
+.token.keyword {
+  @apply text-blue-300;
+}
+
+.token.regex,
+.token.important {
+  @apply text-teal-400;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}

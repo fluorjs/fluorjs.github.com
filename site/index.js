@@ -32,7 +32,7 @@ export default function Index() {
         {/* </div> */}
       </nav>
 
-      <header className="max-w-3xl h-screen mx-auto px-4 flex flex-col items-center justify-center -mt-8">
+      <header className="max-w-screen-md h-screen mx-auto px-4 flex flex-col items-center justify-center -mt-8">
         <h1 className="font-maven text-5xl sm:text-6xl text-green-400 tracking-wide leading-none flex items-center justify-center flex-wrap">
           <img
             src="/assets/logo.svg"
@@ -48,8 +48,8 @@ export default function Index() {
         <div className="max-w-full flex flex-col mt-8">
           <Source className="mb-8">
             {`
-              on("click", "button", toggle("wobble", "h1"))
-              on("animationend", "h1", toggle("wobble"))
+              on("click", "button", addClass("wobble", "h1"))
+              on("animationend", "h1", removeClass("wobble"))
             `}
           </Source>
           <Button className="self-center flex">
@@ -68,13 +68,13 @@ export default function Index() {
 
         <Fluor>
           {`
-            on("click", "button", toggle("wobble", "h1"))
-            on("animationend", "h1", toggle("wobble"))
+            on("click", "button", addClass("wobble", "h1"))
+            on("animationend", "h1", removeClass("wobble"))
           `}
         </Fluor>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4">
+      <main className="max-w-screen-md mx-auto px-4">
         <Sections.Intro />
         <Sections.Install />
         <Sections.Guide />

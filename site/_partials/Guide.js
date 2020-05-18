@@ -18,8 +18,8 @@ export default function Guide() {
             </p>
             <button>Click me</button>
 
+            <!-- This is your fluor script -->
             <script type="fluor">
-            function f() {}
               setup("clicks", 0)
               on("click", "button", set("clicks", n => n + 1))
             </script>
@@ -28,27 +28,12 @@ export default function Guide() {
       </Example>
 
       <Section.Heading id="guide-variables">Variables</Section.Heading>
-
-      <Info>
-        <Info.P>This section is still under construction</Info.P>
-      </Info>
-
       <Section.Heading id="guide-events">Reacting to events</Section.Heading>
-
-      <Info>
-        <Info.P>This section is still under construction</Info.P>
-      </Info>
-
       <Section.Heading id="guide-actions">Actions</Section.Heading>
-
-      <Info>
-        <Info.P>This section is still under construction</Info.P>
-      </Info>
-
       <Section.Heading id="guide-js">{`It's just JavaScript!`}</Section.Heading>
 
       <Info>
-        <Info.P>This section is still under construction</Info.P>
+        <Info.P>This guide is still under construction</Info.P>
       </Info>
     </Section>
   )
