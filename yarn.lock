@@ -7081,6 +7081,11 @@ widest-line@^2.0.0:
   dependencies:
     string-width "^2.1.1"
 
+windsock@^0.6.0:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/windsock/-/windsock-0.6.3.tgz#0050b9648baa6de42054b4bff2daf813f3e19c5b"
+  integrity sha512-Z+X+bjTx6lFXcnsTW54yi72ldfrwyfCOS48NYB1JOmVtLnlRMRzdcy4hxCB0TxR0I7qwdglAR1jDBVIQJyDe2w==
+
 word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"

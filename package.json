@@ -50,6 +50,7 @@
     "Edge >= 15"
   ],
   "dependencies": {
-    "prismjs": "^1.20.0"
+    "prismjs": "^1.20.0",
+    "windsock": "^0.6.0"
   }
 }
