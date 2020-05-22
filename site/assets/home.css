@@ -9,12 +9,6 @@
   animation-fill-mode: both;
 }
 
-@media print, (prefers-reduced-motion: reduce) {
-  .wobble {
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
 @keyframes wobble {
   from {
     transform: translate3d(0, 0, 0);
