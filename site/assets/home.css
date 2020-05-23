@@ -38,3 +38,20 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+.search-label {
+  @apply not-italic text-xs rounded p-2 ml-2 leading-none;
+}
+
+.search-label.action {
+  @apply bg-blue-300 text-blue-900;
+}
+.search-label.function {
+  @apply bg-yellow-400 text-yellow-900;
+}
+.search-label.object {
+  @apply bg-orange-400 text-orange-900;
+}
+.search-label.string {
+  @apply bg-green-400 text-green-900;
+}
