@@ -47,7 +47,6 @@
               }
 
               const sources = $("[data-search-meta]", document.body)
-console.log(sources)
               const matches = [...sources].map(source => (
                 JSON.parse(source.dataset.searchMeta)
               )).filter(source => matchesSource(searchString, source))
