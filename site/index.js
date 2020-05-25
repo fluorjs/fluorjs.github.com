@@ -31,12 +31,12 @@ export default function Index() {
           />
         </div>
 
-        <ul f-class="searchResultsClass" style={{ bottom: "0.5rem" }}>
+        <ul f-bind="class:searchResultsClass" style={{ bottom: "0.5rem" }}>
           <template f-each="match in matches">
             <li className="border-b">
               <a
                 className="flex items-start flex-wrap p-4 block hover:bg-gray-200 no-underline text-gray-800 focus:shadow-outline"
-                f-href="match.link"
+                f-bind="href:match.link"
               >
                 <small
                   className="mr-2 uppercase text-xs text-gray-600 bg-gray-100 p-1 rounded-xs"
@@ -49,7 +49,7 @@ export default function Index() {
                     f-text="match.shortDescription"
                   ></p>
                 </div>
-                <em f-text="match.type" f-class="labelClass"></em>
+                <em f-text="match.type" f-bind="class:labelClass"></em>
               </a>
               <Fluor>{`
                 setup("labelClass", \`search-label $\{$data.match.type}\`)
