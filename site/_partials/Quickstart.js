@@ -43,8 +43,10 @@ export default function Quickstart() {
 
       <Example>
         {`
+          <!-- Your script executes only within its root element -->
           <div>
             <p>
+              <!-- We use the clicks variable contents as text of the strong element  -->
               <strong f-text="clicks"></strong>
             </p>
             <button>Click me</button>
