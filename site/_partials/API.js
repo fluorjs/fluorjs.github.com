@@ -6,6 +6,7 @@ import {
   FunctionRef,
   ActionRef,
   CAction,
+  CBool,
   CFunction,
   CMixed,
   CString,
@@ -168,6 +169,35 @@ export default function API() {
                   square: prev => prev * 2,
                   cube: prev => prev * 3,
                 }))
+              </script>
+            </div>
+            `}
+          </Example>
+        </APIMember.Examples>
+      </APIMember>
+
+      <APIMember
+        member="toggle"
+        shortDescription="Alternates values on boolean variables."
+        type="action"
+        signatures={[[{ name: "variable", type: "string" }]]}
+      >
+        <Section.P>
+          Alternate between <CBool>true</CBool> and <CBool>false</CBool> values
+          on boolean variables.
+        </Section.P>
+
+        <APIMember.Examples>
+          <Example title="Toggling an element's presence">
+            {`
+            <div>
+              <template f-if="visible">
+                <p>Hello!</p>
+              </template>
+              <button>Toggle</button>
+              <script type="fluor">
+                setup("visible", true)
+                on("click", "button", toggle("visible"))
               </script>
             </div>
             `}
