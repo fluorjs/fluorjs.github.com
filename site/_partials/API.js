@@ -9,6 +9,7 @@ import {
   CBool,
   CFunction,
   CMixed,
+  CNumber,
   CString,
   CObject,
 } from "components"
@@ -98,6 +99,69 @@ export default function API() {
             `}
           </Example>
         </APIMember.Examples>
+      </APIMember>
+
+      <APIMember
+        member="every"
+        shortDescription="Repeatedly execute actions with a given time interval."
+        type="function"
+        signatures={[
+          [
+            { name: "interval", type: "number" },
+            { name: "action", type: "action" },
+          ],
+          [
+            { name: "interval", type: "number" },
+            { name: "actions", type: "action", array: true },
+          ],
+        ]}
+      >
+        <Section.P>
+          Repeatedly execute an <CAction>action</CAction>, waiting a given time{" "}
+          <CNumber>interval</CNumber> between each execution.
+        </Section.P>
+
+        <Section.P>
+          The interval should be given in seconds. You can use floating point
+          number (e.g. 0.5) or fractions (e.g. 1/60) to use millisecond
+          intervals.
+        </Section.P>
+
+        <Section.P>
+          You can also pass an array of <CAction>actions</CAction> to be run
+          sequentially.
+        </Section.P>
+      </APIMember>
+
+      <APIMember
+        member="delay"
+        shortDescription="Delay execution of an action."
+        type="action"
+        signatures={[
+          [
+            { name: "amoun", type: "number" },
+            { name: "action", type: "action" },
+          ],
+          [
+            { name: "amoun", type: "number" },
+            { name: "actions", type: "action", array: true },
+          ],
+        ]}
+      >
+        <Section.P>
+          Defers the execution of <CAction>action</CAction> by a given{" "}
+          <CNumber>amount</CNumber> of time.
+        </Section.P>
+
+        <Section.P>
+          The delay should be given in seconds. You can use floating point
+          number (e.g. 0.5) or fractions (e.g. 1/60) to use millisecond delays.
+        </Section.P>
+
+        <Section.P>
+          You can also pass an array of <CAction>actions</CAction> to be run
+          sequentially.
+        </Section.P>
       </APIMember>
 
       <APIMember

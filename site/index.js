@@ -152,7 +152,7 @@ export default function Index() {
               className="rounded-full p-4 shadow-md leading-none focus:outline-none focus:shadow-outline bg-gray-400 text-gray-900 hover:text-gray-800 hover:bg-gray-300 ml-4"
             >
               <svg
-                class="fill-current w-5 h-5"
+                className="fill-current w-5 h-5"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
