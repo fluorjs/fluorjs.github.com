@@ -1,19 +1,20 @@
 import React from "react"
-import {
-  Code,
-  Example,
-  Info,
-  Section,
-  Source,
-  Warning,
-  FunctionRef,
-  ActionRef,
-  searchable,
-} from "components"
+import { Code, Example, Section, Source, Warning, searchable } from "components"
 
 export default function Quickstart() {
   return (
-    <Section id="guide" title="Quickstart">
+    <Section
+      id="guide-quickstart"
+      title="Quickstart"
+      style={{ scrollMarginTop: "6rem" }}
+      {...searchable({
+        category: "guide",
+        name: "Quickstart",
+        link: "#guide-quickstart",
+        type: "",
+        shortDescription: "Setup Fluor.js in your project in a few minutes.",
+      })}
+    >
       <Section.P>
         To load the latest version of Fluor.js in your webpage, all you need to
         do is drop this HTML snippet just before the{" "}
@@ -59,41 +60,6 @@ export default function Quickstart() {
           </div>
         `}
       </Example>
-
-      <Section.Heading
-        id="guide-variables"
-        style={{ scrollMarginTop: "6rem" }}
-        {...searchable({
-          category: "guide",
-          name: "Variables",
-          link: "#guide-variables",
-          type: "",
-          shortDescription: "Learn how to use variables.",
-        })}
-      >
-        Variables
-      </Section.Heading>
-
-      <Section.P>
-        Variables are defined using the <FunctionRef member="setup" /> function
-        and updated with the <ActionRef member="set" /> action. They can hold
-        any type of value.
-      </Section.P>
-
-      <Section.Heading id="guide-events" style={{ scrollMarginTop: "6rem" }}>
-        Reacting to events
-      </Section.Heading>
-      <Section.Heading id="guide-actions" style={{ scrollMarginTop: "6rem" }}>
-        Actions
-      </Section.Heading>
-      <Section.Heading
-        id="guide-js"
-        style={{ scrollMarginTop: "6rem" }}
-      >{`It's just JavaScript!`}</Section.Heading>
-
-      <Info>
-        <Info.P>This guide is still under construction</Info.P>
-      </Info>
     </Section>
   )
 }

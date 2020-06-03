@@ -14,7 +14,7 @@ export default function Index() {
       </Helmet>
 
       <nav className="p-4 flex justify-center items-center bg-green-400 fixed w-screen top-0 shadow">
-        <div className="flex items-center bg-green-800 p-2 rounded-lg text-green-100 focus-within:bg-green-900">
+        <div className="w-full md:max-w-screen-sm flex items-center bg-green-800 p-2 rounded-lg text-green-100 focus-within:bg-green-900">
           <svg
             className="fill-current text-green-200 mr-2"
             xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ export default function Index() {
             })
 
             function matchesSource(searchString, source) {
-              const re = new RegExp(\`.*\${searchString}.*\`)
+              const re = new RegExp(\`.*\${searchString}.*\`, "i")
 
               return re.test(source.name) || re.test(source.shortDescription)
             }
@@ -174,7 +174,9 @@ export default function Index() {
       <main className="max-w-screen-md mx-auto px-4">
         <Sections.Intro />
         <Sections.Quickstart />
-        <Sections.API />
+        <Sections.Guide />
+        <Sections.DirectivesAPI />
+        <Sections.ScriptingAPI />
       </main>
     </Page>
   )

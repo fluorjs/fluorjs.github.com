@@ -55,3 +55,6 @@
 .search-label.string {
   @apply bg-green-400 text-green-900;
 }
+.search-label.directive {
+  @apply bg-teal-400 text-teal-900;
+}

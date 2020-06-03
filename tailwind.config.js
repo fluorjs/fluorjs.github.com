@@ -5,6 +5,7 @@ module.exports = {
   theme: {},
   variants: {
     backgroundColor: ["responsive", "hover", "focus", "focus-within", "target"],
+    margin: ["responsive", "first", "last"],
   },
   plugins: [
     require("tailwindcss-font-inter")({

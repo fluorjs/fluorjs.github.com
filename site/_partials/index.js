@@ -1,9 +1,13 @@
-import API from "./API"
 import Intro from "./Intro"
 import Quickstart from "./Quickstart"
+import Guide from "./Guide"
+import DirectivesAPI from "./DirectivesAPI"
+import ScriptingAPI from "./ScriptingAPI"
 
 export default {
-  API,
   Intro,
   Quickstart,
+  Guide,
+  DirectivesAPI,
+  ScriptingAPI,
 }

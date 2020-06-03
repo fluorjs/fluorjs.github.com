@@ -39,6 +39,9 @@ a:hover {
 .run button:hover {
   @apply bg-green-600;
 }
+.run button[disabled] {
+  @apply bg-green-300 cursor-not-allowed;
+}
 .run input {
   @apply shadow-inner p-2 border rounded;
 }
