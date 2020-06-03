@@ -27,7 +27,7 @@ export default function Index() {
           <input
             type="search"
             placeholder="Search docs..."
-            className="bg-green-800 focus:bg-green-900 placeholder-green-200"
+            className="flex-1 bg-green-800 focus:bg-green-900 placeholder-green-200"
           />
         </div>
 
