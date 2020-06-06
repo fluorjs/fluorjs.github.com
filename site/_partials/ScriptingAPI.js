@@ -78,7 +78,9 @@ export default function ScriptingAPI() {
         <Section.P>
           Fluor.js uses event delegation so you can add elements matching the
           selector and the event handlers will seamlessly apply to the new
-          elements.
+          elements. The event object will be augmented with a
+          <CString>$target</CString> property that will hold the actual DOM
+          element matched by your selector.
         </Section.P>
 
         <APIMember.Examples>
