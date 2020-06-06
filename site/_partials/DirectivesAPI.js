@@ -9,22 +9,37 @@ export default function DirectivesAPI() {
       style={{ scrollMarginTop: "6rem" }}
     >
       <Directive
-        name="f-bind"
+        name="f-bind-{attr}"
         shortDescription="Bind variable values to attributes"
       >
         <Section.P>
-          Binds a variable to an attribute of the target DOM node.
+          Binds a variable to an attribute of the target DOM node. Replace{" "}
+          <Code>{"{attr}"}</Code> with the name of the HTML attribute you want
+          to bind, and use a dotted path to a variable as the value.
         </Section.P>
         <Section.P>
           If the variable is a boolean, the given attribute is added or removed
-          from the DOM node.
+          from the DOM node accordingly.
         </Section.P>
 
         <Directive.Examples>
+          <Example title="Binding value">
+            {`
+              <div>
+                <button f-bind-class="buttonClass">Click me!</button>
+                <style>
+                  .big-button { font-size: 2rem; }
+                </style>
+                <script type="fluor">
+                  setup("buttonClass", "big-button")
+                </script>
+              </div>
+            `}
+          </Example>
           <Example title="Binding boolean variables">
             {`
               <div>
-                <button f-bind="disabled:buttonIsDisabled">Click me!</button>
+                <button f-bind-disabled="buttonIsDisabled">Click me!</button>
                 <script type="fluor">
                   setup("buttonIsDisabled", true)
                 </script>
