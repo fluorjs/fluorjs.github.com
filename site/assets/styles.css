@@ -52,7 +52,7 @@ a:hover {
 
 code[class*="language-"],
 pre[class*="language-"] {
-  @apply font-mono text-gray-200 whitespace-pre text-left break-normal;
+  @apply font-mono text-gray-200 text-left break-normal;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   -moz-tab-size: 2;
   -o-tab-size: 2;
@@ -61,6 +61,10 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+}
+
+pre[class*="language-"] {
+  white-space: pre;
 }
 
 :not(pre) > code[class*="language-"],
