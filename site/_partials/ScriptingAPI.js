@@ -75,6 +75,12 @@ export default function ScriptingAPI() {
           sequentially.
         </Section.P>
 
+        <Section.P>
+          Fluor.js uses event delegation so you can add elements matching the
+          selector and the event handlers will seamlessly apply to the new
+          elements.
+        </Section.P>
+
         <APIMember.Examples>
           <Example title="Basic handler with a single action">
             {`
