@@ -5,6 +5,7 @@ import {
   FunctionRef,
   ActionRef,
   ObjectRef,
+  CString,
   searchable,
 } from "components"
 
@@ -85,6 +86,15 @@ export default function Guide() {
         access using the special <ObjectRef member="$data" /> variable.
       </Section.P>
 
+      <Section.P>
+        Everytime you can write a variable name you can also use a dotted path
+        to access nested objects. For example, if you have a variable{" "}
+        <CString>user</CString> that contains an object{" "}
+        <Code>{`{avatar: {url: "http://example.com/avatar.png"}}`}</Code> you
+        can access the <CString>url</CString> part using{" "}
+        <CString>user.avatar.url</CString>.
+      </Section.P>
+
       <Section.Heading
         id="guide-directives"
         style={{ scrollMarginTop: "6rem" }}
@@ -106,10 +116,9 @@ export default function Guide() {
       </Section.P>
 
       <Section.P>
-        All Fluor directives start with <Code>f-</Code>. You cannot repeat the
-        same directive multiple times because of the way HTML is parsed by the
-        browser, so some directives support specifying multiple values. If that
-        is the case the values will be separated by a comma <Code>,</Code>.
+        All Fluor directives start with <Code>f-</Code>. Because of the way HTML
+        works, you cannot specify the same directive more than once (but you
+        shouldn&apos;t have to anyway).
       </Section.P>
 
       <Section.P>
@@ -141,13 +150,18 @@ export default function Guide() {
       <Section.P>
         Throughout this documentation you will often encounter the term{" "}
         <em>action</em> which is simply a way to tell that these special
-        functions return functions that can be used as event handlers when using{" "}
-        <FunctionRef member="on" />.
+        functions that return functions that can be used as event handlers when
+        using <FunctionRef member="on" />.
       </Section.P>
 
       <Section.P>
         The most common action you will likely use is <ActionRef member="set" />{" "}
         which is used to update variables as a reaction to an event.
+      </Section.P>
+
+      <Section.P>
+        You can obviously create your own actions too, it&apos;s just JavaScript
+        in the end!
       </Section.P>
     </Section>
   )

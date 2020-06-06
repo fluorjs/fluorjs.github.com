@@ -52,7 +52,7 @@ export default function Quickstart() {
             </p>
             <button>Click me</button>
 
-            <!-- This is your fluor script -->
+            <!-- This is your Fluor script -->
             <script type="fluor">
               setup("clicks", 0)
               on("click", "button", set("clicks", n => n + 1))
