@@ -510,7 +510,7 @@ export default function ScriptingAPI() {
         ]}
       >
         <Section.P>
-          Returns the firrst element matching <CString>selector</CString> in the
+          Returns the first element matching <CString>selector</CString> in the
           current molecule. Performs the search on <CObject>root</CObject> if
           given.
         </Section.P>
