@@ -449,6 +449,31 @@ export default function ScriptingAPI() {
       </APIMember>
 
       <APIMember
+        member="withTarget"
+        shortDescription="Consume DOM event targets in an action."
+        type="action"
+        signatures={[[{ name: "action", type: "action" }]]}
+      >
+        <Section.P>
+          This is an utility method that helps with consuming an event target
+          inside an <CAction>action</CAction>.
+        </Section.P>
+
+        <APIMember.Examples>
+          <Example title="Manipulating an event target">
+            {`
+              <div>
+                <p>Click me!</p>
+                <script type="fluor">
+                  on("click", "p", withTarget(t => () => t.style.color = "red"))
+                </script>
+              </div>
+            `}
+          </Example>
+        </APIMember.Examples>
+      </APIMember>
+
+      <APIMember
         member="classes"
         shortDescription="Build HTML class names."
         type="function"
